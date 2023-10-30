@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('image');
             $table->integer ('views');
             $table->unsignedBigInteger('author_id');
-             $table->foreign('author_id')->references('id') ->on('authors')->onDelete('cascade');
+            $table->foreign('author_id')->references('id') ->on('authors')->onDelete('cascade');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id') ->on('categories')->onDelete('cascade');
             // $table->foreign('author_id')->constraint('authors')->OnDelete('cascade');
             $table->timestamps();
         });

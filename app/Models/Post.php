@@ -9,8 +9,16 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $table="Posts";
-    protected $fillable = [   
-        'title',  'description',  'Published' , 'image' ,'views'
+    protected $table="posts";
+    protected $fillable = [  
+
+        'title',  'description',  'Published' , 'image' ,'views','author_id','category_id'
     ];
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+    public function authers(){
+        return $this->belongsToMany(Auther::class,'author_id');
+    }
 }
