@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\FrontEnd\GetPostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,4 +43,14 @@ Route::prefix('/admin')->group(function () {
 
 
 
+});
+
+
+Route::prefix('/frontend')->group(function () {
+
+    Route::get ('/all-posts', [GetPostController::class,'index'] );
+    Route::get ('/views-posts', [GetPostController::class,'viewposts'] );
+    Route::get('/post-by-id/{id}', [GetPostController::class,'getPostById'] );
+    Route::get('/post-by-cat/{id}', [GetPostController::class,'getPostByCategory'] );
+    Route::get('/search-posts/{search}', [GetPostController::class, 'searchPost']);
 });
