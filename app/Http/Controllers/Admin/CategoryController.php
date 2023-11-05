@@ -8,8 +8,6 @@ use App\Models\Category;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use PDO;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
 class CategoryController extends Controller
 {
