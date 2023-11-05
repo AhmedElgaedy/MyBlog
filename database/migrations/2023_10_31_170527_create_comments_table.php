@@ -15,9 +15,12 @@ return new class extends Migration
             $table->id();
             $table->text('content');
             $table->text('Published');
-            // $table->foreign('user_id')->constrained('users')->cascadeOnDelete();
+            // $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            // $table->foreignId('post_id')->constrained('posts')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id') ->on('users')->cascadeOnDelete();
+            $table->unsignedBigInteger('post_id');
+            $table->foreign('post_id')->references('id') ->on('posts')->cascadeOnDelete();
             $table->timestamps();
         });
     }
